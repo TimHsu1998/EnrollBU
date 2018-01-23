@@ -1,0 +1,39 @@
+<h1> Enroll a course </h1>
+
+<%= simple_form_for @course do |f| %>
+
+  <h3>School account:</h3>
+  <%= f.input :loginemail, placeholder: "xxxxx@bu.edu"%>
+  <%= f.input :loginpassword, placeholder: "BU password"%>
+  <h3>Choose add or swap a course</h3>
+  <%= f.input :add_or_swap, as: :select, label:"Add or Swap?", collection:
+      [('add'), ('swap')]%>
+
+  <h3>The course you want to enroll in:</h3>
+  <%= f.input :name, placeholder: "ex. Intro to CS II"%>
+  <%= f.input :college, placeholder: "ex. CAS" %>
+  <%= f.input :department, placeholder: "ex. CS"%>
+  <%= f.input :number, placeholder: "ex. 112"%>
+  <%= f.input :section, placeholder: "ex. A1" %>
+  <h5> If the course have lab/discussion, fill out which lab/discussion sections which work for you</h5>
+  <p>*if the course doesn't have lab/discussion, leave it blank<p>
+  <p>*if you just want to add/swap a lab/discusstion section,
+     put it in "Section" instead of "Lab"
+  <p>
+  <%= f.input :lab1, placeholder: "ex. A2" %>
+  <%= f.input :lab2, placeholder: "ex. A3" %>
+  <%= f.input :lab3, placeholder: "ex. A4" %>
+  <%= f.input :lab4, placeholder: "ex. A5" %>
+
+  <h3>The course for swap:</h3>
+  <p>*if you just want to add a course, leave the following section blank<p>
+  <%= f.input :swapped_name, placeholder: "ex. Intro to CS II" %>
+  <%= f.input :swapped_college, placeholder: "ex. CAS" %>
+  <%= f.input :swapped_department, placeholder: "ex. CS" %>
+  <%= f.input :swapped_number, placeholder: "ex. 112" %>
+  <%= f.input :swapped_section, placeholder: "ex. C1" %>
+  <%= f.input :swapped_lab, placeholder: "ex. C2" %>
+  <p>*if the course doesn't have lab/discussion, leave the "Swapped_lab" blank<p>
+
+  <%= f.submit "Submit" %>
+<% end %>

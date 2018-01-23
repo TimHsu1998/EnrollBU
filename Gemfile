@@ -34,6 +34,11 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails'
 gem 'simple_form'
+gem "watir-rails"
+gem 'headless'
+gem 'whenever', :require => false
+gem 'nokogiri'
+gem 'pry'
 
 group :production do
   gem 'pg', '~> 0.18.4'

@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123042149) do
+ActiveRecord::Schema.define(version: 20180123042544) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "college"
+    t.string "department"
+    t.string "number"
+    t.string "section"
+    t.string "swapped_name"
+    t.string "swapped_college"
+    t.string "swapped_department"
+    t.string "swapped_number"
+    t.string "swapped_section"
+    t.string "swapped_lab"
+    t.string "add_or_swap"
+    t.string "loginemail"
+    t.string "loginpassword"
+    t.integer "user_id"
+    t.boolean "have_lab"
+    t.boolean "enrolledin", default: false
+    t.string "lab1"
+    t.string "lab2"
+    t.string "lab3"
+    t.string "lab4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

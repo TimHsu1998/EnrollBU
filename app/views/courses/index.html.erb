@@ -1,0 +1,33 @@
+<table class="table table-boldered">
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>college</th>
+      <th>Department</th>
+      <th>Number</th>
+      <th>Add/Swap</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+
+        <td><%= course.name %></td>
+        <td><%= course.college %></td>
+        <td><%= course.department %></td>
+        <td><%= course.number %></td>
+        <td><%= course.section%></td>
+        <td><%= course.add_or_swap%></td>
+
+        <td>
+          <%= link_to("Edit", edit_course_path(course)) %> |
+          <%= link_to("Destroy", course_path(course), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
