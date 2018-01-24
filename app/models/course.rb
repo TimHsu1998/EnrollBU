@@ -29,8 +29,8 @@ class Course < ApplicationRecord
 
   #login and check the course is open or not
   def self.check_course(course)
-    #headless = Headless.new
-    #headless.start
+    headless = Headless.new
+    headless.start
     Selenium::WebDriver::Chrome.driver_path = "/usr/local/bin/chromedriver"
     browser = Watir::Browser.new :chrome, :switches => %w[--no-sandbox]
         # go login to registration
