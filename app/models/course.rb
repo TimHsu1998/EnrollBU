@@ -127,8 +127,6 @@ class Course < ApplicationRecord
         else
           enroll_course_with_lab(browser,course, opened_section)
         end
-
-        end
       end
     end
   end
@@ -211,9 +209,9 @@ class Course < ApplicationRecord
     @tr = @doc.css('body > table:nth-child(6) > tbody > tr')
     section = course.swapped_department + course.swapped_number
     tr_line = find_tr_line(@tr, section, false)
-    #binding.pry
+
     browser.checkbox(:css, "body > table:nth-child(6) > tbody > tr:nth-child(#{tr_line}) > td:nth-child(1) > input[type='checkbox']").set
-    #binding.pry
+
     if course.swapped_lab != ''
       browser.checkbox(:css, "body > table:nth-child(6) > tbody > tr:nth-child(#{tr_line+1}) > td:nth-child(1) > input").set
     end
