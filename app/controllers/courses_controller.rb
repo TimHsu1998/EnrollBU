@@ -44,8 +44,9 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name,:college,:department,:number,:section,
+                                  :lab1, :lab2, :lab3, :lab4, :add_or_swap,
                                   :swapped_name,:swapped_college,:swapped_department,
-                                  :swapped_number,:swapped_section,:add_or_swap,
+                                  :swapped_number,:swapped_section, :swapped_lab,
                                   :loginemail, :loginpassword)
   end
 end
