@@ -18,9 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, {:error => '~/BUregis/log/production.lop', :standard => '~/BUregis/log/production.lop'}
+set :output, {:error => '~/EnrollBU/log/production.lop', :standard => '~/EnrollBU/lop/production.lop'}
 
-#set :environment, :production
+set :environment, :production
 every 1.minute do
   runner "Course.register"
 end

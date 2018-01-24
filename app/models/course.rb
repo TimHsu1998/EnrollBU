@@ -29,8 +29,8 @@ class Course < ApplicationRecord
 
   #login and check the course is open or not
   def self.check_course(course)
-    headless = Headless.new
-    headless.start
+    #headless = Headless.new
+    #headless.start
     Selenium::WebDriver::Chrome.driver_path = "/usr/local/bin/chromedriver"
     browser = Watir::Browser.new :chrome, :switches => %w[--no-sandbox]
         # go login to registration
@@ -127,9 +127,6 @@ class Course < ApplicationRecord
         else
           enroll_course_with_lab(browser,course, opened_section)
         end
-        if check_success(browser)
-          course.enrolledin = true
-        else
 
         end
       end
@@ -156,7 +153,6 @@ class Course < ApplicationRecord
         end
       end
     end
-    binding.pry
     if course.lab1 == '' #if course dosen't have lab
       return opened_course
     elsif opened_course[1] != nil #if course has lab
