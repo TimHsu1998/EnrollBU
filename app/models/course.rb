@@ -1,11 +1,9 @@
 class Course < ApplicationRecord
 
-
-=begin
-  def validate
+  #def validate
     #need to valudate the input is right or wrong
-  end
-=end
+  #end
+
   belongs_to :user
 
   validates :name, presence: true
@@ -264,10 +262,9 @@ class Course < ApplicationRecord
     browser.button(:onclick => "SearchNbr()").click
 
     enroll_course(browser)
-=begin
-  def email
+  #def email
     #if the add_back is false, email the admin and user
-  end
-=end
+  #end
+
   end
 end
