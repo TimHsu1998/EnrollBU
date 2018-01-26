@@ -29,7 +29,7 @@ class Course < ApplicationRecord
   def self.check_course(course)
     headless = Headless.new
     headless.start
-    Selenium::WebDriver::Chrome.driver_path = "/usr/local/bin/chromedriver"
+    Selenium::WebDriver::Chrome.driver_path = "/usr/bin/chromedriver"
     browser = Watir::Browser.new :chrome, :switches => %w[--no-sandbox]
         # go login to registration
     browser.goto 'https://www.bu.edu/link/bin/uiscgi_studentlink.pl/1516080925?ModuleName=menu.pl&NewMenu=Academics'

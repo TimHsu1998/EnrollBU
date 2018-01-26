@@ -13,7 +13,18 @@ set :deploy_to, "/home/deploy/EnrollBU"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
+namespace :deploy do
+  desc "Update crontab with whenever"
+  task :update_cron do
+    on roles(:app) do
+      within current_path do
+        execute :bundle, :exec, "whenever --update-crontab #{fetch(:application)}"
+      end
+    end
+  end
 
+  after :finishing, 'deploy:update_cron'
+end
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
