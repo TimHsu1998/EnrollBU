@@ -25,6 +25,11 @@ namespace :deploy do
 
   after :finishing, 'deploy:update_cron'
 end
+
+require 'whenever/capistrano'
+
+set :whenever_environment, defer { stage }
+set :whenever_command, 'bundle exec whenever'
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
