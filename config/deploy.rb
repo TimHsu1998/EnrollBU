@@ -13,6 +13,7 @@ set :deploy_to, "/home/deploy/EnrollBU"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
+=begin
 namespace :deploy do
   desc "Update crontab with whenever"
   task :update_cron do
@@ -25,6 +26,7 @@ namespace :deploy do
 
   after :finishing, 'deploy:update_cron'
 end
+=end
 
 require 'whenever/capistrano'
 
